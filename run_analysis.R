@@ -79,4 +79,4 @@ dataMelt <- melt(data, id = c("activityId", "subjectId"))
 dataWithAverage <- dcast(dataMelt, activityId + subjectId ~ variable, mean)
 
 #create new file with the new dataset
-write.table(dataWithAverage, "finalData.txt")
+write.table(dataWithAverage, "finalData.txt", row.names = FALSE)
