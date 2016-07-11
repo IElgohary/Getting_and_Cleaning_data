@@ -1,4 +1,4 @@
- # Getting and Cleaning Data course project
+#Getting and Cleaning Data course project
  
  This repo contains the Project for JohnsHopkins' course, Getting and Cleaning Data
  
