@@ -66,7 +66,7 @@ for(i in 1:length(names(data)))
     columns[i] <- gsub("mean","Mean", columns[i] )
 }
 
-#rename variables in dataset
+#rename vsriables in dataset
 colnames(data) <- columns
 
 ######################################################################
