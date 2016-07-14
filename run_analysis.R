@@ -1,4 +1,4 @@
-library(reshape2)
+library(plyr)
 # 1.Merge the training and the test sets to create one data set
 
 #load and rename labels
@@ -73,10 +73,10 @@ colnames(data) <- columns
 # 5.Create a second, independent tidy data set with the average of each variable for each activity and each subject
 
 # melt dataset
-dataMelt <- melt(data, id = c("activityId", "subjectId"))
+#dataMelt <- melt(data, id = c("activityId", "subjectId"),na.rm=TRUE)
 
 # cast dataset with averaging
-dataWithAverage <- dcast(dataMelt, activityId + subjectId ~ variable, mean)
-
+#dataWithAverage <- dcast(dataMelt, activityId + subjectId ~ variable, mean)
+dataWithAverage<- ddply(data, .(subjectId, activityId), function(x) colMeans(x[, 1:66]))
 #create new file with the new dataset
-write.table(dataWithAverage, "finalData.txt")
+write.table(dataWithAverage, "finalData.txt", row.names = FALSE)
